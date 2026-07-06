@@ -15,6 +15,18 @@
     background:var(--paper); color:var(--ink); font-size:16px; line-height:1.45;
     padding-bottom:40px;
   }
+
+  .maps-btn {
+    display:block; text-align:center; margin:0 auto 16px;
+    background:var(--sky); color:#fff;
+    border:none; border-radius:50px; padding:14px 28px;
+    font-size:17px; font-weight:800; letter-spacing:0.3px;
+    cursor:pointer; text-decoration:none;
+    box-shadow: 0 4px 14px rgba(47,127,212,0.35);
+    transition: transform 0.1s, box-shadow 0.1s;
+  }
+  .maps-btn:active { transform:scale(0.97); box-shadow:0 2px 8px rgba(47,127,212,0.25); }
+
   .stripe { height:8px;
     background:repeating-linear-gradient(90deg,
       var(--poppy) 0 48px, var(--gold) 48px 96px, var(--fir) 96px 144px,
@@ -97,6 +109,8 @@
 </header>
 
 <div class="langbar" id="langbar"></div>
+
+<a href="https://maps.app.goo.gl/mMEhF7bsuHuCPM4H6" target="_blank" class="maps-btn" id="maps-btn" data-i18n="maps_btn"></a>
 
 <main>
   <!-- COFFEE -->
@@ -291,6 +305,7 @@ const I18N = {
     tip6:"Tipping: <b>~10%</b> is the norm in bars & restaurants",
     tip7:"Public transport: <b>Google Maps</b> + the <b>24Pay</b> app",
     tip8:"Emergency number: <b>112</b> (EU-wide)",
+    maps_btn:"📍 Open in Google Maps",
     pass:"Password", help:"Need help? Call us —", foot:"Enjoy Bucharest"
   },
   ro: {
@@ -329,6 +344,7 @@ const I18N = {
     tip6:"Bacșiș: <b>~10%</b> e norma în baruri & restaurante",
     tip7:"Transport public: <b>Google Maps</b> + aplicația <b>24Pay</b>",
     tip8:"Număr de urgență: <b>112</b>",
+    maps_btn:"📍 Deschide în Google Maps",
     pass:"Parolă", help:"Aveți nevoie de ajutor? Sunați-ne —", foot:"Bucurați-vă de București"
   },
   fr: {
@@ -367,6 +383,7 @@ const I18N = {
     tip6:"Pourboire : <b>~10%</b> est la norme dans les bars & restaurants",
     tip7:"Transports : <b>Google Maps</b> + l'appli <b>24Pay</b>",
     tip8:"Numéro d'urgence : <b>112</b> (UE)",
+    maps_btn:"📍 Ouvrir dans Google Maps",
     pass:"Mot de passe", help:"Besoin d'aide ? Appelez-nous —", foot:"Profitez de Bucarest"
   },
   de: {
@@ -405,6 +422,7 @@ const I18N = {
     tip6:"Trinkgeld: <b>~10%</b> ist üblich in Bars & Restaurants",
     tip7:"ÖPNV: <b>Google Maps</b> + die <b>24Pay</b>-App",
     tip8:"Notrufnummer: <b>112</b> (EU-weit)",
+    maps_btn:"📍 In Google Maps öffnen",
     pass:"Passwort", help:"Brauchen Sie Hilfe? Rufen Sie uns an —", foot:"Genießen Sie Bukarest"
   },
   it: {
@@ -443,6 +461,7 @@ const I18N = {
     tip6:"Mancia: <b>~10%</b> è la norma in bar & ristoranti",
     tip7:"Trasporti: <b>Google Maps</b> + l'app <b>24Pay</b>",
     tip8:"Numero di emergenza: <b>112</b> (UE)",
+    maps_btn:"📍 Apri in Google Maps",
     pass:"Password", help:"Serve aiuto? Chiamateci —", foot:"Godetevi Bucarest"
   },
   es: {
@@ -481,6 +500,7 @@ const I18N = {
     tip6:"Propina: <b>~10%</b> es la norma en bares & restaurantes",
     tip7:"Transporte: <b>Google Maps</b> + la app <b>24Pay</b>",
     tip8:"Número de emergencia: <b>112</b> (UE)",
+    maps_btn:"📍 Abrir en Google Maps",
     pass:"Contraseña", help:"¿Necesitáis ayuda? Llamadnos —", foot:"Disfrutad de Bucarest"
   }
   ,he: {
@@ -519,6 +539,7 @@ const I18N = {
     tip6:"טיפ: <b>~10%</b> הוא הנורמה בברים ובמסעדות",
     tip7:"תחבורה ציבורית: <b>Google Maps</b> + אפליקציית <b>24Pay</b>",
     tip8:"מספר חירום: <b>112</b> (כלל-אירופי)",
+    maps_btn:"📍 פתח במפות גוגל",
     pass:"סיסמה", help:"צריכים עזרה? התקשרו אלינו —", foot:"תיהנו מבוקרשט"
   }
 };
