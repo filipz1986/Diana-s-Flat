@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diana's Flats · Bucharest Old Town — Book Direct</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#23204F; --poppy:#EF4A3C; --gold:#FFB726; --fir:#0B8C74;
+    --plum:#6A50C8; --sky:#2F7FD4; --paper:#FFF4E0; --card:#FFFDF7;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    font-family:'Space Grotesk', -apple-system, sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  a { color:inherit; }
+  img { display:block; max-width:100%; }
+
+  .stripe { height:7px;
+    background:repeating-linear-gradient(90deg,
+      var(--poppy) 0 46px, var(--gold) 46px 92px, var(--fir) 92px 138px,
+      var(--ink) 138px 184px, var(--plum) 184px 230px, var(--sky) 230px 276px);
+  }
+
+  /* ---------- hero ---------- */
+  .hero { max-width:760px; margin:0 auto; padding:38px 20px 20px; text-align:center; }
+  .eyebrow { color:var(--poppy); font-weight:700; font-size:12px; letter-spacing:2px;
+    text-transform:uppercase; }
+  h1 { font-family:'Archivo Black'; font-size:clamp(34px,7vw,52px); letter-spacing:-0.5px;
+    margin:6px 0 10px; color:var(--ink); }
+  .hero p { font-size:16px; opacity:0.85; max-width:520px; margin:0 auto; }
+  .hero-badges { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:20px; }
+  .badge { background:var(--card); border:2px solid var(--ink); border-radius:20px;
+    padding:6px 14px; font-size:13px; font-weight:700; display:flex; align-items:center; gap:6px; }
+  .badge .star { color:var(--gold); }
+
+  /* ---------- ribbon ---------- */
+  .ribbon-wrap { max-width:760px; margin:26px auto 0; padding:0 20px; }
+  .ribbon { background:var(--ink); color:var(--paper); border-radius:14px;
+    padding:14px 20px; text-align:center; font-size:14px; font-weight:600;
+    display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; }
+  .ribbon .dot { width:7px; height:7px; border-radius:50%; background:var(--gold); }
+
+  /* ---------- apartment cards ---------- */
+  main { max-width:900px; margin:0 auto; padding:34px 16px 10px; }
+  .apt {
+    background:var(--card); border-radius:22px; overflow:hidden;
+    margin-bottom:34px; box-shadow:0 10px 30px rgba(35,32,79,0.08);
+  }
+  .gallery {
+    display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:0;
+    -webkit-overflow-scrolling:touch;
+  }
+  .gallery::-webkit-scrollbar { height:6px; }
+  .gallery::-webkit-scrollbar-thumb { background:rgba(35,32,79,0.25); border-radius:3px; }
+  .gallery img {
+    scroll-snap-align:start; flex:0 0 100%; width:100%; height:280px;
+    object-fit:cover; background:#e7e0d0;
+  }
+  .apt-body { padding:22px 22px 24px; }
+  .apt-top { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; }
+  .apt-name { font-family:'Archivo Black'; font-size:22px; letter-spacing:-0.2px; }
+  .rating { flex:0 0 auto; text-align:right; white-space:nowrap; }
+  .rating b { font-size:16px; }
+  .rating .n { font-size:12px; opacity:0.65; display:block; }
+  .specs { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 14px; }
+  .spec { background:var(--paper); border-radius:10px; padding:5px 11px; font-size:12.5px; font-weight:600; }
+  .apt-desc { font-size:14.5px; opacity:0.88; margin-bottom:16px; }
+  .amenities { display:flex; flex-wrap:wrap; gap:8px 16px; font-size:13px; opacity:0.8; margin-bottom:20px; }
+  .amenities span { white-space:nowrap; }
+
+  /* boarding-pass CTA */
+  .ticket {
+    display:flex; align-items:stretch; border:2px solid var(--ink); border-radius:14px;
+    overflow:hidden; background:var(--paper);
+  }
+  .ticket-info { flex:1; padding:14px 16px; }
+  .ticket-info .lbl { font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+    color:var(--poppy); }
+  .ticket-info .txt { font-size:13.5px; margin-top:3px; opacity:0.85; }
+  .ticket-stub {
+    flex:0 0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:8px; padding:14px 18px; border-left:2px dashed var(--ink); background:var(--ink);
+  }
+  .ticket-stub a {
+    display:flex; align-items:center; gap:7px; text-decoration:none;
+    background:var(--gold); color:var(--ink); font-weight:700; font-size:13.5px;
+    padding:9px 16px; border-radius:30px; white-space:nowrap;
+  }
+  .ticket-stub a:active { transform:scale(0.97); }
+  .ticket-stub .via { font-size:10px; color:#B0AECC; letter-spacing:0.5px; }
+
+  /* ---------- hosts section ---------- */
+  .hosts { max-width:760px; margin:10px auto 0; padding:24px 20px 6px; }
+  .hosts-card {
+    background:var(--card); border-radius:20px; padding:26px 24px;
+    display:flex; gap:20px; align-items:center; flex-wrap:wrap;
+  }
+  .hosts-photo {
+    width:76px; height:76px; border-radius:50%; object-fit:cover; flex:0 0 auto;
+    border:3px solid var(--gold);
+  }
+  .hosts-text { flex:1; min-width:220px; }
+  .hosts-text .name { font-family:'Archivo Black'; font-size:18px; margin-bottom:4px; }
+  .hosts-text .quote { font-size:14px; font-style:italic; opacity:0.85; line-height:1.55; }
+  .hosts-stats { display:flex; gap:18px; margin-top:14px; flex-wrap:wrap; }
+  .hosts-stats div { text-align:center; }
+  .hosts-stats b { display:block; font-size:18px; font-family:'Archivo Black'; }
+  .hosts-stats span { font-size:11px; opacity:0.7; text-transform:uppercase; letter-spacing:0.5px; }
+
+  /* ---------- footer ---------- */
+  footer { max-width:760px; margin:34px auto 0; padding:0 20px 40px; text-align:center; }
+  .footer-cta { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:18px; }
+  .contact-btn {
+    display:inline-flex; align-items:center; gap:8px; text-decoration:none;
+    background:var(--ink); color:var(--paper); font-weight:700; font-size:14px;
+    padding:12px 22px; border-radius:30px;
+  }
+  .contact-btn.alt { background:transparent; color:var(--ink); border:2px solid var(--ink); }
+  footer .fine { font-size:12px; opacity:0.6; margin-top:10px; }
+  footer .heart { color:var(--poppy); }
+
+  @media (max-width:600px) {
+    .ticket { flex-direction:column; }
+    .ticket-stub { border-left:none; border-top:2px dashed var(--ink); flex-direction:row; justify-content:space-between; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stripe"></div>
+
+<div class="hero">
+  <div class="eyebrow">Bucharest, Old Town — hosted directly by Laura &amp; Gabriel</div>
+  <h1>Diana's Flats</h1>
+  <p>Two bright apartments steps from the Old Town, hosted by the same family for 10 years. Message us directly — no platform, no extra fees, just us.</p>
+  <div class="hero-badges">
+    <div class="badge"><span class="star">★</span> Superhost · 528 reviews</div>
+    <div class="badge">10 years hosting</div>
+    <div class="badge">100% response rate</div>
+  </div>
+</div>
+
+<div class="ribbon-wrap">
+  <div class="ribbon"><span class="dot"></span> Book direct and skip the platform fees — same apartments, same hosts, better price <span class="dot"></span></div>
+</div>
+
+<main>
+
+  <!-- APARTMENT 1 -->
+  <div class="apt">
+    <div class="gallery">
+      <img src="https://a0.muscache.com/im/pictures/95dc1b06-1313-46ad-8ecc-c9fde5cbdbb7.jpg?im_w=1200" alt="Diana's Flat 11 living room">
+      <img src="https://a0.muscache.com/im/pictures/0b835ee5-7c27-4070-a817-2b4bec889b82.jpg?im_w=1200" alt="Diana's Flat 11">
+      <img src="https://a0.muscache.com/im/pictures/8ed61c7d-c4f8-4fa7-921c-85097b0a1563.jpg?im_w=1200" alt="Diana's Flat 11">
+      <img src="https://a0.muscache.com/im/pictures/4bc3838c-ae57-429f-99ec-48acb6052847.jpg?im_w=1200" alt="Diana's Flat 11 main bedroom">
+      <img src="https://a0.muscache.com/im/pictures/fd4576f7-0828-4c60-beb4-6f0a30665569.jpg?im_w=1200" alt="Diana's Flat 11 second bedroom">
+    </div>
+    <div class="apt-body">
+      <div class="apt-top">
+        <div class="apt-name">Diana's Flat 11</div>
+        <div class="rating"><b>★ 4.95</b><span class="n">370 reviews</span></div>
+      </div>
+      <div class="specs">
+        <span class="spec">87 m²</span>
+        <span class="spec">2 bedrooms · 3 beds</span>
+        <span class="spec">2 bathrooms</span>
+        <span class="spec">Up to 6 guests</span>
+        <span class="spec">400m to Old Town</span>
+      </div>
+      <div class="apt-desc">
+        A bright, 87m² apartment with oak floors throughout, 400m from the Old Town and close to Unirii Square — the Palace of Parliament is a 200m walk. Two double bedrooms, a fold-out sofa in the living room, air conditioning, and a fast Wi-Fi connection. Elevator access.
+      </div>
+      <div class="amenities">
+        <span>❄️ A/C</span><span>🛗 Elevator</span><span>📶 Fast Wi-Fi</span>
+        <span>🧺 Washing machine</span><span>🍳 Full kitchen</span><span>🪵 Oak floors</span>
+      </div>
+      <div class="ticket">
+        <div class="ticket-info">
+          <div class="lbl">Ask about dates &amp; rates</div>
+          <div class="txt">We reply within the hour — send your dates and we'll confirm availability and price directly.</div>
+        </div>
+        <div class="ticket-stub">
+          <a href="https://wa.me/40721336070?text=Hi%20Laura!%20I'd%20like%20to%20ask%20about%20Diana's%20Flat%2011%20(the%20smaller%20one%2C%202%20bedrooms).%20Is%20it%20available%20for..." target="_blank">💬 Message Laura</a>
+          <span class="via">or call +40 721 336 070</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APARTMENT 2 -->
+  <div class="apt">
+    <div class="gallery">
+      <img src="https://a0.muscache.com/im/pictures/ac13b446-6187-4fbd-901c-d97e61f29c05.jpg?im_w=1200" alt="Diana's Flat living room">
+      <img src="https://a0.muscache.com/im/pictures/miso/Hosting-16423790/original/d1680553-b2ee-4348-89e9-7dd546667011.jpeg?im_w=1200" alt="Diana's Flat">
+      <img src="https://a0.muscache.com/im/pictures/miso/Hosting-16423790/original/d627c06e-da46-48f0-9eb9-cbfb69b49844.jpeg?im_w=1200" alt="Diana's Flat">
+      <img src="https://a0.muscache.com/im/pictures/miso/Hosting-16423790/original/9b81f7bd-02cb-47fb-8d32-52e840023a65.jpeg?im_w=1200" alt="Diana's Flat main bedroom">
+      <img src="https://a0.muscache.com/im/pictures/miso/Hosting-16423790/original/435b1096-9b22-43b5-82f6-0b3de6ea6dc7.jpeg?im_w=1200" alt="Diana's Flat second bedroom">
+      <img src="https://a0.muscache.com/im/pictures/miso/Hosting-16423790/original/ab561b55-8192-4d16-9f12-000a851db592.jpeg?im_w=1200" alt="Diana's Flat third bedroom">
+    </div>
+    <div class="apt-body">
+      <div class="apt-top">
+        <div class="apt-name">Diana's Flat</div>
+        <div class="rating"><b>★ 4.98</b><span class="n">510 reviews</span></div>
+      </div>
+      <div class="specs">
+        <span class="spec">100 m²</span>
+        <span class="spec">3 bedrooms · 4 beds</span>
+        <span class="spec">2 bathrooms</span>
+        <span class="spec">Up to 8 guests</span>
+        <span class="spec">2 min to Old Town</span>
+      </div>
+      <div class="apt-desc">
+        Our larger apartment, literally 2 minutes from the Old Town, with views of the Palace of Parliament from the kitchen and living room. Three bedrooms, a dining table for 8, and a fully equipped kitchen with dishwasher and washing machine — great for groups of friends or families. 4th floor with elevator; we live in the same building.
+      </div>
+      <div class="amenities">
+        <span>🏛️ Parliament view</span><span>🛗 Elevator</span><span>🍽️ Dining for 8</span>
+        <span>🧺 Washer + dishwasher</span><span>📶 Wi-Fi</span><span>🅿️ Paid parking nearby</span>
+      </div>
+      <div class="ticket">
+        <div class="ticket-info">
+          <div class="lbl">Ask about dates &amp; rates</div>
+          <div class="txt">We reply within the hour — send your dates and we'll confirm availability and price directly.</div>
+        </div>
+        <div class="ticket-stub">
+          <a href="https://wa.me/40721238164?text=Hi%20Gabriel!%20I'd%20like%20to%20ask%20about%20Diana's%20Flat%20(the%20larger%20one%2C%203%20bedrooms).%20Is%20it%20available%20for..." target="_blank">💬 Message Gabriel</a>
+          <span class="via">or call +40 721 238 164</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<div class="hosts">
+  <div class="hosts-card">
+    <img class="hosts-photo" src="https://a0.muscache.com/im/pictures/user/User/original/52b3b45b-d17b-4b77-b3a1-b37bda170013.jpeg?im_w=240" alt="Laura and Gabriel">
+    <div class="hosts-text">
+      <div class="name">Laura &amp; Gabriel</div>
+      <div class="quote">"We've visited a lot of countries, but not enough. We love good food, a good glass of wine — any colour — pálinka, and talking endlessly about our wonderful country and what it has to offer."</div>
+      <div class="hosts-stats">
+        <div><b>528</b><span>Reviews</span></div>
+        <div><b>4.98</b><span>Avg rating</span></div>
+        <div><b>10</b><span>Years hosting</span></div>
+        <div><b>100%</b><span>Response rate</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-cta">
+    <a class="contact-btn" href="https://wa.me/40721336070?text=Hi!%20I'm%20interested%20in%20booking%20one%20of%20your%20apartments%20in%20Bucharest." target="_blank">💬 WhatsApp us</a>
+    <a class="contact-btn alt" href="tel:+40721336070">📞 Call Laura</a>
+    <a class="contact-btn alt" href="tel:+40721238164">📞 Call Gabriel</a>
+  </div>
+  <div class="fine">Same trusted hosts you'll find on Airbnb — 528 reviews, 4.98★, Superhost for 10 years.</div>
+  <div class="fine">Enjoy Bucharest <span class="heart">♥</span></div>
+</footer>
+
+</body>
+</html>
